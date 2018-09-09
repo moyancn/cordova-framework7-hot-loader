@@ -63,3 +63,4 @@ typings/
 plugins/*
 platforms/*
 res/*
+www/platform_cordova_files/*

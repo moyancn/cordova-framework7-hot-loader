@@ -18,7 +18,7 @@
             {{ color }}
           </f7-button>
         </f7-col>
-        <f7-col width="33" @click="test">hideBar</f7-col>
+        <f7-col width="33" @click="test">hideBar 6</f7-col>
       </f7-row>
     </f7-block>
   </f7-page>
@@ -55,6 +55,8 @@ export default {
       app.root.addClass(`color-theme-${color}`);
     },
     test () {
+      console.log('test...', this.$f7.statusbar)
+      this.$f7.statusbar.setBackgroundColor('#ff0000')
       this.$f7.statusbar.hide()
     }
   },
