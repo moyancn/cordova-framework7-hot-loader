@@ -1,7 +1,7 @@
 const deviceJs = require('current-device').default;
 
-function bodyPrepend(platform) {
-  let body = document.querySelector("body"),
+function bodyPrepend (platform) {
+  let head = document.querySelector("head"),
     script = document.createElement("script");
 
   script.onload = function () {
@@ -9,7 +9,7 @@ function bodyPrepend(platform) {
   };
 
   script.src = `platform_cordova_files/${platform}/cordova.js`;
-  body.appendChild(script);
+  head.appendChild(script);
 
 
   console.log(`${platform} platform cordova.js injected.`);

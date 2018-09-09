@@ -148,7 +148,7 @@ module.exports = function (ctx) {
 			sys.cleanWww()
 
 			$('head').prepend(`<meta http-equiv="content-security-policy" content="${defaultCsp.replace(/LOCIP/g, getRouterIpAddr())}">`)
-			$('head').prepend(`<script>const localServerIp = '${getRouterIpAddr()}'</script>`).append(`<script src="cordova.js"></script>`)
+			$('body').prepend(`<script>const localServerIp = '${getRouterIpAddr()}'</script>`).append(`<script src="cordova.js"></script>`)
 			fs.writeFileSync(targetFile, $.html())
 
 			if (conf('allow-navigation').length === 0)
