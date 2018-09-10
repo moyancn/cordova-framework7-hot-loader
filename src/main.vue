@@ -21,17 +21,33 @@ export default {
     data () {
         return {
             f7params: {
-                theme: "ios",
+                theme: "auto",
                 routes,
                 statusbar: {
                     iosOverlaysWebView: true,
-                    iosBackgroundColor: "#333333",
-                    materialBackgroundColor: "#00ff00",
-                    iosTextColor: "white"
+                    iosBackgroundColor: "##f7f7f8",
+                    materialBackgroundColor: "#1b1b1b",
+                    iosTextColor: "default"
                 },
                 id: 'io.framework7.testapp',
             }
         }
+    },
+    mounted () {
+        var self = this
+        document.addEventListener("deviceready", function () {
+            console.log('deviceready...', self.$f7.device.cordova)
+            self.$f7.device.cordova = true
+            console.log('deviceready...', self.$f7.device.cordova)
+            if (theme == 'dark') {
+                this.$f7.statusbar.setBackgroundColor('#1b1b1b')
+                this.$f7.statusbar.setIosTextColor('white')
+            }
+            else {
+                this.$f7.statusbar.setBackgroundColor('##f7f7f8')
+                this.$f7.statusbar.setIosTextColor('default')
+            }
+        });
     }
 }
 </script>

@@ -46,6 +46,14 @@ export default {
       const self = this;
       const app = self.$f7;
       app.root.removeClass('theme-dark theme-light').addClass(`theme-${theme}`);
+      if (theme == 'dark') {
+        this.$f7.statusbar.setBackgroundColor('#1b1b1b')
+        this.$f7.statusbar.setIosTextColor('white')
+      }
+      else {
+        this.$f7.statusbar.setBackgroundColor('#1b1b1b')
+        this.$f7.statusbar.setIosTextColor('white')
+      }
     },
     setColorTheme (color) {
       const self = this;
@@ -53,11 +61,12 @@ export default {
       const currentColorClass = app.root[0].className.match(/color-theme-([a-z]*)/);
       if (currentColorClass) app.root.removeClass(currentColorClass[0]);
       app.root.addClass(`color-theme-${color}`);
+      this.$f7.statusbar.setBackgroundColor(color)
+      this.$f7.statusbar.setIosTextColor('white')
     },
     test () {
-      console.log('test...', this.$f7.statusbar)
-      this.$f7.statusbar.setBackgroundColor('#ff0000')
-      this.$f7.statusbar.hide()
+      console.log('device.4.', this.$f7.device.cordova)
+      this.$f7.statusbar.isVisible() ? this.$f7.statusbar.hide() : this.$f7.statusbar.show()
     }
   },
 };
